@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>Preskool - Teachers</title>
 
-    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <link rel="shortcut icon" href="/assets/img/favicon.png">
 
     <style type="text/css">
         @font-face {
@@ -453,20 +453,20 @@
         }
     </style>
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="assets/plugins/feather/feather.css">
+    <link rel="stylesheet" href="/assets/plugins/feather/feather.css">
 
-    <link rel="stylesheet" href="assets/plugins/icons/flags/flags.css">
+    <link rel="stylesheet" href="/assets/plugins/icons/flags/flags.css">
 
-    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css">
 
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/plugins/fontawesome/css/all.min.css">
 
-    <link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
 
 <body>
@@ -487,26 +487,35 @@
             {{-- content --}}
             @yield('content')
         </div>
+        {{-- <div class="page-wrapper">
+
+            @yield('content2')
+        </div> --}}
 
     </div>
 
 
-    <script src="assets/js/jquery-3.7.1.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
+    <script src="/assets/js/jquery-3.7.1.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
 
-    <script src="assets/js/bootstrap.bundle.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
 
-    <script src="assets/js/feather.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
+    <script src="/assets/js/feather.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
 
-    <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
+    <script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
 
-    <script src="assets/plugins/select2/js/select2.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
+    <script src="/assets/plugins/select2/js/select2.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
 
-    <script src="assets/plugins/moment/moment.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
-    <script src="assets/js/bootstrap-datetimepicker.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
+    <script src="/assets/plugins/moment/moment.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
+    <script src="/assets/js/bootstrap-datetimepicker.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
 
-    <script src="assets/js/script.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
-    <script src="../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+    <script src="/assets/js/script.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
+    <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
         data-cf-settings="a7bf873b2b744e71efea6b87-|49" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+    @yield('js')
 </body>
 
 <!-- Mirrored from preschool.dreamstechnologies.com/template/add-teacher.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 May 2024 18:18:05 GMT -->

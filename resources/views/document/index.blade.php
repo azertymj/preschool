@@ -1,12 +1,14 @@
 @extends('layouts.main')
 @section('content')
-<div class="card-body">
-    @include('document.formulaire')
-</div>
+
+    <div class="card-body">
+            @include('document.formulaire')
+    </div>
 @endsection
-@section('contentr')
+
+{{-- @section('content2')
     @include('document.table')
-@endsection
+@endsection --}}
 
 @section('js')
 <script>

@@ -1,9 +1,4 @@
-@extends('layouts.main')
-{{-- @extends('layouts.header')
-@extends('layouts.sidebar-menu') --}}
-
-@section('content')
-{{-- <div class="content container-fluid">
+<div class="content container-fluid">
     <div class="page-header">
         <div class="row align-items-center">
             <div class="col">
@@ -100,8 +95,4 @@
             </div>
         </div>
     </div>
-</div> --}}
-<div class="card-body">
-    @include('document.formulaire')
 </div>
-@endsection

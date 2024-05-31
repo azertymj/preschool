@@ -99,10 +99,15 @@
                                             <td>{{ $document->description }}</td>
                                             <td>{{ $document->nombre_vue }}</td>
                                             <td>
-                                                @if($document->file)
-                                                    <a href="{{ asset('storage/' . $document->file) }}" download>Download</a>
+                                                @if($document->fichier)
+                                                <a href="{{ asset('storage/' . $document->fichier) }}"
+                                                    class="btn btn-sm bg-success-light me-2" data-toggle="tooltip"
+                                                    data-placement="right" title="Voir le fichier">
+                                                    <i class="feather-eye"></i>
+                                                </a>
+                                                    {{-- <a href="{{ asset('storage/' . $document->fichier) }}" download>Download</a>
                                                     <br>
-                                                    <img src="{{ asset('storage/' . $document->file) }}" alt="Document Image" width="100">
+                                                    <img src="{{ asset('storage/' . $document->file_name) }}" alt="Document Image" width="100"> --}}
                                                 @endif
                                             </td>
                                             <td class="text-end">

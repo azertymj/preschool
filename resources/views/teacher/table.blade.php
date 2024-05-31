@@ -1,14 +1,9 @@
-
-    <div class="content container-fluid">
+<div class="content container-fluid">
 
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Subjects</h3>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Liste de document</a></li>
-                        <li class="breadcrumb-item active">Subjects</li>
-                    </ul>
+                    <h3 class="page-title">LISTE DE DOCUMENT</h3>
                 </div>
             </div>
         </div>
@@ -22,12 +17,12 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search by Name ...">
+                        <input type="text" class="form-control" placeholder="Search by Titre ...">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search by Class ...">
+                        <input type="text" class="form-control" placeholder="Search by Extension ...">
                     </div>
                 </div>
                 <div class="col-lg-2">
@@ -50,7 +45,7 @@
                                 <div class="col-auto text-end float-end ms-auto download-grp">
                                     <a href="#" class="btn btn-outline-primary me-2"><i
                                             class="fas fa-download"></i> Download</a>
-                                    <a href="{{ route('document.index')}}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                    <a href="{{ route('add')}}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -100,11 +95,12 @@
                                             <td>{{ $document->nombre_vue }}</td>
                                             <td>
                                                 @if($document->fichier)
-                                                <a href="{{ asset('storage/documents/' . $document->fichier) }}"
-                                                    class="btn btn-sm bg-success-light me-2" data-toggle="tooltip"
-                                                    data-placement="right" title="Voir le fichier">
+                                                <a href="{{ asset('storage/documents/' . $document->fichier) }}" class="btn btn-sm bg-success-light me-2" data-toggle="tooltip"
+                                                    data-placement="left"
+                                                    target="_blank">
                                                     <i class="feather-eye"></i>
                                                 </a>
+
                                                     {{-- <a href="{{ asset('storage/' . $document->fichier) }}" download>Download</a>
                                                     <br>
                                                     <img src="{{ asset('storage/' . $document->file_name) }}" alt="Document Image" width="100"> --}}
@@ -149,4 +145,5 @@
                 </div>
             </div>
         </div>
-
+    </div>
+</div>

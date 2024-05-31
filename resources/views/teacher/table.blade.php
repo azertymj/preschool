@@ -99,8 +99,11 @@
                                             <td>{{ $document->description }}</td>
                                             <td>{{ $document->nombre_vue }}</td>
                                             <td>
-                                                <a href="{{ asset('storage/' . $document->fichier) }}"
-                                                    download>Download</a>
+                                                @if($document->file)
+                                                    <a href="{{ asset('storage/' . $document->file) }}" download>Download</a>
+                                                    <br>
+                                                    <img src="{{ asset('storage/' . $document->file) }}" alt="Document Image" width="100">
+                                                @endif
                                             </td>
                                             <td class="text-end">
                                                 <div class="actions">

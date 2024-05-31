@@ -14,8 +14,9 @@ Route::get('/document', [DocumentController::class, 'index'])->name('document.in
 // Route::get('/document', [DocumentController::class, 'index'])->name('document.index');
 Route::get('document/edit/{id}', [documentController::class, 'edit'])->name('document.edit');
 Route::post('document/update/{id}', [DocumentController::class, 'update'])->name('document.update');
-Route::get('document/delete/{id}', [DocumentController::class, 'delete'])->name('document.delete');
+Route::delete('document/delete/{id}', [DocumentController::class, 'delete'])->name('document.delete');
 Route::post('document', [DocumentController::class, 'save'])->name('document.save');
+
 
 
 // Route::get('/', function () {

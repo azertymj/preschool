@@ -50,7 +50,7 @@
                                 <div class="col-auto text-end float-end ms-auto download-grp">
                                     <a href="#" class="btn btn-outline-primary me-2"><i
                                             class="fas fa-download"></i> Download</a>
-                                    <a href="add-subject.html" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                    <a href="{{ route('document.index')}}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -91,8 +91,8 @@
                                                         href="{{ route('document.index', $document->id) }}">{{ $document->titre }}</a>
                                                 </h2>
                                             </td>
-                                            <td>{{ $document->publier_le }}</td>
-                                            <td>{{ $document->publier_par }}</td>
+                                            <td>{{ $document->publie_le }}</td>
+                                            <td>{{ $document->publie_par }}</td>
                                             <td>{{ $document->extension }}</td>
                                             <td>{{ $document->type_document }}</td>
                                             <td>{{ $document->etat }}</td>
@@ -113,18 +113,18 @@
                                                         @csrf
 
                                                         <button type="submit" class="btn btn-sm bg-danger-light">
-                                                            <i class="feather-edit"><a data-id="{{ $document->id }}" class="btn-delete" style="display: none" href="#"></a>
+                                                            <i class="feather-edit"><a data-id="{{ $document->id }}"  style="display: none" href="#"></a>
                                                             </i>
                                                         </button>
                                                     </form>
 
-                                                    <form action="{{ route('document.delete', $document->id) }}"
-                                                        method="POST" class="d-inline">
+                                                    <form action="{{ route('document.delete', $document->id) }}"method="POST" class="d-inline">
+
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-sm bg-danger-light"
                                                             onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce document ?');">
-                                                            <i class="feather-trash-2"></i>
+                                                            <i class="feather-trash-2"><a data-id="{{ $document->id }}" style="display: none" href="#"></a></i>
                                                         </button>
                                                     </form>
 

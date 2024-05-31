@@ -129,10 +129,11 @@
 
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-sm bg-danger-light"
-                                                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce document ?');">
-                                                            <i class="feather-trash-2"><a data-id="{{ $document->id }}" style="display: none" href="#"></a></i>
-                                                        </button>
+                                                        <button type="submit" class="btn btn-sm bg-danger-light delete-btn"
+                                                        onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce document ?');">
+                                                        <i class="feather-trash-2"><a data-id="{{ $document->id }}" style="display: none" href="#"></a></i>
+                                                    </button>
+
                                                     </form>
 
                                                 </div>

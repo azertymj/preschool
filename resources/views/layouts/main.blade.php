@@ -24,7 +24,7 @@
             font-family: Roboto;
             font-style: normal;
             font-weight: 400;
-            src: url(https://preschool.dreamstechnologies.com/cf-fonts/s/roboto/5.0.11/latin/400/normal.woff2);
+            /* src: url(https://preschool.dreamstechnologies.com/cf-fonts/s/roboto/5.0.11/latin/400/normal.woff2); */
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
             font-display: swap;
         }
@@ -96,7 +96,7 @@
             font-family: Roboto;
             font-style: normal;
             font-weight: 500;
-            src: url(https://preschool.dreamstechnologies.com/cf-fonts/s/roboto/5.0.11/latin/500/normal.woff2);
+            /* src: url(https://preschool.dreamstechnologies.com/cf-fonts/s/roboto/5.0.11/latin/500/normal.woff2); */
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
             font-display: swap;
         }
@@ -195,7 +195,7 @@
             font-family: Roboto;
             font-style: normal;
             font-weight: 700;
-            src: url(https://preschool.dreamstechnologies.com/cf-fonts/s/roboto/5.0.11/latin/700/normal.woff2);
+            /* src: url(https://preschool.dreamstechnologies.com/cf-fonts/s/roboto/5.0.11/latin/700/normal.woff2); */
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
             font-display: swap;
         }
@@ -517,48 +517,56 @@
     <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
     @yield('js')
 
-    <script>
-        document.getElementById('selectAll').addEventListener('change', function () {
-            const checkboxes = document.querySelectorAll('.document-checkbox');
-            checkboxes.forEach((checkbox) => {
-                checkbox.checked = this.checked;
+
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+        <div class="toast-header">
+            <strong class="me-auto">Suppression de document</strong>
+            <button type="button" class="btn-close" data-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Le document a été supprimé avec succès.
+        </div>
+    </div>
+<script>
+    // Attend que le document soit chargé
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélectionne tous les boutons de suppression avec la classe .delete-btn
+        const deleteButtons = document.querySelectorAll('.delete-btn');
+
+        // Ajoute un écouteur d'événement clic à chaque bouton de suppression
+        deleteButtons.forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                // Affiche le toast après la suppression du document
+                showToast();
+
+                // Si vous souhaitez également exécuter la suppression, vous pouvez ajouter votre code de suppression ici
             });
         });
 
-        document.getElementById('bulkDeleteBtn').addEventListener('click', function () {
-            const selectedIds = Array.from(document.querySelectorAll('.document-checkbox:checked')).map((checkbox) => checkbox.value);
-            if (selectedIds.length === 0) {
-                alert('Please select at least one document to delete.');
-                return;
-            }
+        // Fonction pour afficher le toast
+        // function showToast() {
+        //     var toastLiveExample = document.getElementById('liveToast');
+        //     var toast = new bootstrap.Toast(toastLiveExample);
+        //     toast.show();
+        // }
+    });
+</script>
 
-            if (!confirm('Are you sure you want to delete the selected documents?')) {
-                return;
-            }
 
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = '{{ route('document.bulkDelete') }}';
-            form.style.display = 'none';
 
-            const csrfInput = document.createElement('input');
-            csrfInput.type = 'hidden';
-            csrfInput.name = '_token';
-            csrfInput.value = '{{ csrf_token() }}';
-            form.appendChild(csrfInput);
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-            selectedIds.forEach((id) => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'ids[]';
-                input.value = id;
-                form.appendChild(input);
-            });
+<!-- Placez ce script juste avant la balise </body> -->
+<script>
+    function showToast() {
+        var toast = new bootstrap.Toast(document.getElementById('liveToast'));
+        toast.show();
+    }
+</script>
+</body>
 
-            document.body.appendChild(form);
-            form.submit();
-        });
-    </script>
 </body>
 
 <!-- Mirrored from preschool.dreamstechnologies.com/template/add-teacher.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 May 2024 18:18:05 GMT -->

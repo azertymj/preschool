@@ -1,6 +1,4 @@
 @extends('layouts.main')
-{{-- @extends('layouts.header')
-@extends('layouts.sidebar-menu') --}}
 
 @section('content')
 <div class="content container-fluid">

@@ -92,7 +92,7 @@ class DocumentController extends Controller
     public function download($id)
     {
         $document = Document::findOrFail($id);
-        $filePath = storage_path('app/public/documents/' . $document->fichier);
+        $filePath = storage_path('public/documents/'. $document->fichier);
         return response()->download($filePath);
     }
 
@@ -112,7 +112,7 @@ class DocumentController extends Controller
 
     // Enregistrement du fichier
     $file_name = $request->file('fichier')->getClientOriginalName();
-    $file_path = $request->file('fichier')->storeAs('app/documents', $file_name);
+    $file_path = $request->file('fichier')->storeAs('public/documents', $file_name);
 
     $document = new Document([
         'titre' => $request->get('titre'),

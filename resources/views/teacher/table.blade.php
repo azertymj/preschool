@@ -100,7 +100,7 @@
                                             <td>{{ $document->nombre_vue }}</td>
                                             <td>
                                                 @if($document->fichier)
-                                                <a href="{{ asset('storage/' . $document->fichier) }}"
+                                                <a href="{{ asset('storage/documents/' . $document->fichier) }}"
                                                     class="btn btn-sm bg-success-light me-2" data-toggle="tooltip"
                                                     data-placement="right" title="Voir le fichier">
                                                     <i class="feather-eye"></i>

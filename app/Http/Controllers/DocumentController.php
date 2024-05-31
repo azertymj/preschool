@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class DocumentController extends Controller
 {
@@ -131,6 +132,68 @@ class DocumentController extends Controller
 
     return redirect()->route('document.index')->with('success', 'Document ajouté avec succès.');
     }
+
+    public function search(Request $request)
+    {
+    $query = Document::query();
+
+    // Filtrer par ID
+    if ($request->filled('search_id')) {
+        $query->where('id', $request->input('search_id'));
+    }
+
+    // Filtrer par Titre
+    if ($request->filled('search_titre')) {
+        $query->where('titre', 'like', '%' . $request->input('search_titre') . '%');
+    }
+
+    // Filtrer par Extension
+    if ($request->filled('search_extension')) {
+        $query->where('extension', 'like', '%' . $request->input('search_extension') . '%');
+    }
+
+    // Obtenir les résultats filtrés
+    $documents = $query->get();
+
+    return view('teacher.list', compact('documents'));
+    }
+
+    public function downloadCsv()
+    {
+    $documents = Document::all();
+    $csvContent = "ID,Titre,Publier Le,Publier Par,Extension,Type Document,Etat,Description,Nombre de Vues,Fichier\n";
+
+    foreach ($documents as $document) {
+        $csvContent .= "{$document->id},{$document->titre},{$document->publie_le},{$document->publie_par},{$document->extension},{$document->type_document},{$document->etat},{$document->description},{$document->nombre_vue},{$document->fichier}\n";
+    }
+
+    $fileName = 'documents_' . date('Y-m-d_H-i-s') . '.csv';
+    return response($csvContent)
+        ->header('Content-Type', 'text/csv')
+        ->header('Content-Disposition', 'attachment; filename="' . $fileName . '"');
+    }
+
+    public function bulkDelete(Request $request)
+    {
+    $ids = $request->input('ids', []);
+    if (empty($ids)) {
+        return redirect()->route('document.index')->with('error', 'No documents selected for deletion.');
+    }
+
+    $documents = Document::whereIn('id', $ids)->get();
+
+    DB::transaction(function () use ($documents) {
+        foreach ($documents as $document) {
+            if ($document->fichier) {
+                Storage::delete($document->fichier);
+            }
+            $document->delete();
+        }
+    });
+
+    return redirect()->route('document.index')->with('message', 'Documents deleted successfully!');
+    }
+
 
 
 }

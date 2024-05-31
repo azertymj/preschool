@@ -9,29 +9,32 @@
         </div>
 
         <div class="student-group-form">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search by ID ...">
+            <form action="{{ route('document.search') }}" method="GET">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="search_id" class="form-control" placeholder="Search by ID ..." value="{{ request('search_id') }}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="search_titre" class="form-control" placeholder="Search by Titre ..." value="{{ request('search_titre') }}">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="search_extension" class="form-control" placeholder="Search by Extension ..." value="{{ request('search_extension') }}">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="search-student-btn">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search by Titre ...">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search by Extension ...">
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="search-student-btn">
-                        <button type="btn" class="btn btn-primary">Search</button>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
+
         <div class="row">
             <div class="col-sm-12">
                 <div class="card card-table">
@@ -43,12 +46,12 @@
                                     <h3 class="page-title">Subjects</h3>
                                 </div>
                                 <div class="col-auto text-end float-end ms-auto download-grp">
-                                    <a href="#" class="btn btn-outline-primary me-2"><i
-                                            class="fas fa-download"></i> Download</a>
+                                    <a href="{{ route('document.downloadCsv') }}" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download CSV</a>
                                     <a href="{{ route('add')}}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="table-responsive">
                             <table id="example" class="display table table-striped align-middle" style="width:100%" class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
@@ -67,7 +70,7 @@
                                         <th>Type Document</th>
                                         <th>Etat</th>
                                         <th>Description</th>
-                                        <th>Nombre de Vues</th>
+                                        <th>Vues</th>
                                         <th>Fichier</th>
                                         <th class="text-end">Action</th>
                                     </tr>

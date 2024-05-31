@@ -10,6 +10,11 @@ Route::get('/list', [RedirectController::class, 'list'])->name('list');
 Route::get('/view', [RedirectController::class, 'view'])->name('view');
 
 
+// web.php
+Route::get('/documents/search', [DocumentController::class, 'search'])->name('document.search');
+Route::get('/documents/download-csv', [DocumentController::class, 'downloadCsv'])->name('document.downloadCsv');
+Route::post('/documents/bulk-delete', [DocumentController::class, 'bulkDelete'])->name('document.bulkDelete');
+
 
 Route::get('/document', [DocumentController::class, 'index'])->name('document.index');
 // Route::get('/document', [DocumentController::class, 'index'])->name('document.index');

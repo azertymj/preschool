@@ -17,13 +17,13 @@ class DocumentFactory extends Factory
     public function definition(): array
     {
         return [
-            'titre' => $this->faker->sentence,
+            'titre' => $this->faker->sentence(1),
             'publie_le' => $this->faker->date,
             'publie_par' => $this->faker->name,
             'extension' => $this->faker->randomElement(['pdf', 'doc', 'xlxs', 'png', 'jpg']),
             'type_document' => $this->faker->word,
             'etat' => $this->faker->boolean,
-            'description' => $this->faker->paragraph(1),
+            'description' => $this->faker->paragraph(0.2),
             'nombre_vue' => $this->faker->numberBetween(0, 1000),
         ];
     }

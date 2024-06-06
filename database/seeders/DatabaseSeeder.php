@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Document::factory()->count(4)->create();
+        Document::factory()->count(10)->create();
 
         // User::factory()->create([
         //     'name' => 'Test User',

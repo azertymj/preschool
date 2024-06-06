@@ -21,7 +21,7 @@ return new class extends Migration
             $table->boolean('etat');
             $table->text('description');
             $table->integer('nombre_vue')->default(0);
-            $table->string('fichier')->nullable();
+            $table->string('fichier')->default('icone.png');
             $table->timestamps();
         });
     }

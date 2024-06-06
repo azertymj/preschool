@@ -124,7 +124,7 @@ class DocumentController extends Controller
         'etat' => $request->get('etat'),
         'description' => $request->get('description'),
         'nombre_vue' => $request->get('nombre_vue'),
-        'fichier' => $file_path, // Enregistrez le file_path d'accès au fichier
+        'fichier' => $file_name, // Enregistrez le file_path d'accès au fichier
 
     ]);
 

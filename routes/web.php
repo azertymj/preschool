@@ -16,16 +16,9 @@ Route::get('/documents/download-csv', [DocumentController::class, 'downloadCsv']
 Route::post('/documents/bulk-delete', [DocumentController::class, 'bulkDelete'])->name('document.bulkDelete');
 
 
-Route::get('/document', [DocumentController::class, 'index'])->name('document.index');
-// Route::get('/document', [DocumentController::class, 'index'])->name('document.index');
+Route::get('/', [DocumentController::class, 'index'])->name('document.index');
 Route::get('document/edit/{id}', [documentController::class, 'edit'])->name('document.edit');
-// Route::post('document/update/{id}', [DocumentController::class, 'update'])->name('document.update');
 Route::delete('document/delete/{id}', [DocumentController::class, 'delete'])->name('document.delete');
 Route::post('document', [DocumentController::class, 'save'])->name('document.save');
 Route::post('document/save', [DocumentController::class, 'store'])->name('document.save');
 Route::post('document/update/{id}', [DocumentController::class, 'update'])->name('document.update');
-
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });

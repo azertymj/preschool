@@ -21,6 +21,15 @@
         if (confirm('Voulez vous supprimer cet element ?')) {
             window.location.replace(url);
         }
+
+        new DataTable('#example', {
+                responsive: true,
+                    layout: {
+                        topStart: {
+                            buttons: ['colvis']
+                        }
+                    }
+            });
     })
 </script>
 

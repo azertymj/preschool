@@ -466,7 +466,7 @@
 
     <link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
 
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
 <body>
@@ -493,7 +493,6 @@
         </div> --}}
 
     </div>
-
 
     <script src="/assets/js/jquery-3.7.1.min.js" type="a7bf873b2b744e71efea6b87-text/javascript"></script>
 
@@ -527,48 +526,45 @@
             Le document a été supprimé avec succès.
         </div>
     </div>
-<script>
-    // Attend que le document soit chargé
-    document.addEventListener('DOMContentLoaded', function() {
-        // Sélectionne tous les boutons de suppression avec la classe .delete-btn
-        const deleteButtons = document.querySelectorAll('.delete-btn');
+    <script>
+        // Attend que le document soit chargé
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sélectionne tous les boutons de suppression avec la classe .delete-btn
+            const deleteButtons = document.querySelectorAll('.delete-btn');
 
-        // Ajoute un écouteur d'événement clic à chaque bouton de suppression
-        deleteButtons.forEach(function(button) {
-            button.addEventListener('click', function(event) {
-                // Affiche le toast après la suppression du document
-                showToast();
+            // Ajoute un écouteur d'événement clic à chaque bouton de suppression
+            deleteButtons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    // Affiche le toast après la suppression du document
+                    showToast();
 
-                // Si vous souhaitez également exécuter la suppression, vous pouvez ajouter votre code de suppression ici
+                    // Si vous souhaitez également exécuter la suppression, vous pouvez ajouter votre code de suppression ici
+                });
             });
+
+            // Fonction pour afficher le toast
+            // function showToast() {
+            //     var toastLiveExample = document.getElementById('liveToast');
+            //     var toast = new bootstrap.Toast(toastLiveExample);
+            //     toast.show();
+            // }
         });
+    </script>
 
-        // Fonction pour afficher le toast
-        // function showToast() {
-        //     var toastLiveExample = document.getElementById('liveToast');
-        //     var toast = new bootstrap.Toast(toastLiveExample);
-        //     toast.show();
-        // }
-    });
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<!-- Placez ce script juste avant la balise </body> -->
-<script>
-    function showToast() {
-        var toast = new bootstrap.Toast(document.getElementById('liveToast'));
-        toast.show();
-    }
-</script>
+    <!-- Placez ce script juste avant la balise </body> -->
+    <script>
+        function showToast() {
+            var toast = new bootstrap.Toast(document.getElementById('liveToast'));
+            toast.show();
+        }
+    </script>
 </body>
 
 </body>
 
-<!-- Mirrored from preschool.dreamstechnologies.com/template/add-teacher.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 May 2024 18:18:05 GMT -->
 
 </html>

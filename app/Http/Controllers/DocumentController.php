@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class DocumentController extends Controller
 {
     public function index()
-    {
+    {   notify()->success('Laravel Notify is awesome!');
         $documents = Document::all();
         return view('teacher.list', compact('documents'));
     }
@@ -62,7 +62,7 @@ class DocumentController extends Controller
 
         $document->update($data);
 
-        return redirect()->route('document.index')->with('message', 'Mise à jour effectuée!');
+        return redirect()->route('document.index')->with('maj', 'Mise à jour effectuée!');
     }
 
     public function save(Request $request)
@@ -87,7 +87,7 @@ class DocumentController extends Controller
 
         Document::create($data);
 
-        return redirect()->back()->with('message', 'Ajout effectué!');
+        return redirect()->back()->with('save', 'Ajout effectué!');
     }
 
     public function download($id)

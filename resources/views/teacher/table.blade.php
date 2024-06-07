@@ -8,18 +8,57 @@
         </div>
     </div>
 
-    @if (session('message'))
-    <div class="alert alert-success">
-        {{ session('message') }}
+    {{-- @if (session('edit'))
+    <div class="alert alert-warning">
+        {{ session('edit') }}
     </div>
-@endif
+    @endif
 
-@if (session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
+    @if (session('delete'))
+        <div class="alert alert-danger">
+            {{ session('delete') }}
+        </div>
+    @endif
 
+    @if (session('maj'))
+        <div class="alert alert-success">
+            {{ session('maj') }}
+        </div>
+    @endif
+
+    @if (session('save'))
+        <div class="alert alert-info">
+            {{ session('save') }}
+        </div>
+    @endif --}}
+
+    @if (session('edit'))
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ session('edit') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+            
+    @if (session('delete'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('delete') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+    @if (session('maj'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('maj') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+    @if (session('save'))
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            {{ session('save') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
     <div class="student-group-form">
         <form action="{{ route('document.search') }}" method="GET">
@@ -78,7 +117,7 @@
                                 <tr>
                                     <th>
                                         <div class="form-check check-tables">
-                                            <input class="form-check-input" type="checkbox" value="something">
+                                            <input class="form-check-input" type="checkbox" id="selectAll">
                                         </div>
                                     </th>
                                     <th>ID</th>
@@ -99,7 +138,7 @@
                                     <tr>
                                         <td>
                                             <div class="form-check check-tables">
-                                                <input class="form-check-input" type="checkbox" value="something">
+                                                <input class="form-check-input document-checkbox" type="checkbox" value="{{ $document->id }}">
                                             </div>
                                         </td>
                                         <td>{{ $document->id }}</td>
@@ -112,7 +151,7 @@
                                         <td>{{ $document->publie_par }}</td>
                                         <td>{{ $document->extension }}</td>
                                         <td>{{ $document->type_document }}</td>
-                                        <td>{{ $document->etat }}</td>
+                                        <td>{{ $document->etat == 1 ? 'Publié' : 'Non publié' }}</td>
                                         <td>{{ $document->description }}</td>
                                         <td>{{ $document->nombre_vue }}</td>
                                         <td>

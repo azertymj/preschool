@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\DocumentController;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/add', [RedirectController::class, 'add'])->name('add');
@@ -22,3 +23,6 @@ Route::delete('document/delete/{id}', [DocumentController::class, 'delete'])->na
 Route::post('document', [DocumentController::class, 'save'])->name('document.save');
 Route::post('document/save', [DocumentController::class, 'store'])->name('document.save');
 Route::post('document/update/{id}', [DocumentController::class, 'update'])->name('document.update');
+
+
+Route::fallback([RedirectController::class, 'notFound'])->name('notFound');

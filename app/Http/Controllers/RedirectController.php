@@ -26,4 +26,9 @@ class RedirectController extends Controller
         $documents = Document::all();
         return view('teacher.view');
     }
+
+    public function notFound()
+    {
+        return response()->view('errors.404', [], 404);
+    }
 }
